@@ -1,4 +1,4 @@
-package com.example.apirest.controller;
+package com.example.apirest.service;
 
 
 import org.springframework.http.ResponseEntity;

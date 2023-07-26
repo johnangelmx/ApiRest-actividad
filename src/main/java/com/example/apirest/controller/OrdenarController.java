@@ -1,11 +1,10 @@
-package com.example.apirest.service;
+package com.example.apirest.controller;
 
 
-import com.example.apirest.controller.OrdenarService;
+import com.example.apirest.service.OrdenarService;
 import com.example.apirest.model.ArregloContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
