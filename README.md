@@ -1,77 +1,95 @@
-Documentación API Ordenar ArregloDocumentación API Ordenar Arreglo
-=================================
+Documentación de API OrdenarAPI Ordenar
+===========
 
-Esta API proporciona una forma de ordenar un arreglo de enteros.
+Endpoint: /ordenar
+------------------
 
-Ruta
-----
+**Método:** POST
 
-La ruta de la API es `/ordenar`.
+**Descripción:** Ordena un arreglo de enteros de forma ascendente y devuelve el resultado ordenado.
 
-Método de solicitud
--------------------
+**Parámetros de entrada:**   
+El cuerpo de la solicitud debe contener un objeto JSON con la siguiente estructura:
 
-El método de solicitud debe ser `POST`.
+```json
 
-Cuerpo de la solicitud
-----------------------
+{
+  "arreglo": [
+    elemento1,
+    elemento2,
+    ...,
+    elementoN
+  ]
+}
 
-El cuerpo de la solicitud debe ser un objeto JSON con la siguiente estructura:
-
- ```json
-
-    {
-        "arreglo": [elemento1, elemento2, ..., elementoN]
-    }
-    
 ```
 
-Donde `elemento1`, `elemento2`, ..., `elementoN` son los elementos del arreglo. Cada elemento debe ser un entero. El arreglo puede contener cualquier cantidad de elementos.
+Donde "elemento1, elemento2, ..., elementoN" son valores enteros que conforman el arreglo a ordenar.  **Respuesta:**
 
-Respuestas
-----------
+- Si el arreglo contiene algún valor que no sea entero, se devuelve un código de estado 400 Bad Request con un mensaje
+  de error indicando que el arreglo debe contener solo enteros.
+- Si el arreglo está vacío, se devuelve un código de estado 400 Bad Request con un mensaje de error indicando que el
+  arreglo está vacío y debe ser validado.
+- Si el arreglo es válido y contiene enteros, se devuelve un código de estado 200 OK con el arreglo ordenado:
 
-- Respuesta exitosa (200 OK): Si la solicitud es válida y contiene un arreglo válido de enteros, la respuesta contendrá un objeto JSON con el arreglo ordenado.
-- Respuesta de error (400 Bad Request): Si la solicitud contiene un arreglo no válido o vacío, la respuesta contendrá un objeto JSON con un mensaje de error explicativo.
+```json
 
-Ejemplo de solicitud
+[
+  elemento1,
+  elemento2,
+  ...,
+  elementoN
+]
+
+```
+
+Donde "elemento1, elemento2, ..., elementoN" son los valores enteros ordenados del arreglo de entrada.
+
+---
+Documentación de API FechaAPI Fecha
+=========
+
+Endpoint: /fecha
+----------------
+
+**Método:** GET
+
+**Descripción:** Obtiene la fecha actual del sistema.
+
+**Respuesta:**   
+Código de estado: 200 OK   
+Cuerpo de respuesta: Un mensaje que indica la fecha actual en formato "fechaActual: AAAA-MM-DD".
+
+Endpoint: /fecha/mes
 --------------------
 
-El siguiente es un ejemplo de una solicitud válida:
+**Método:** GET
 
-```text
-POST /ordenar
-```
- ```json
+**Descripción:** Obtiene el nombre del mes actual.
 
-    {
-        "arreglo": [7, 3, 9, 1, 5]
-    }
-    
-```
+**Respuesta:**   
+Código de estado: 200 OK   
+Cuerpo de respuesta: Un mensaje que indica el nombre del mes actual en español. Ejemplo: "mesActual: enero".
 
-Ejemplo de respuesta exitosa
-----------------------------
+Endpoint: /fecha/dia
+--------------------
 
-El siguiente es un ejemplo de una respuesta exitosa:
+**Método:** GET
 
- ```json
+**Descripción:** Obtiene el día del mes actual.
 
-    {
-        "arreglo": [1, 3, 5, 7, 9]
-    }
-    
-```
+**Respuesta:**   
+Código de estado: 200 OK   
+Cuerpo de respuesta: Un mensaje que indica el día del mes actual. Ejemplo: "diaActual: 26".
 
-Ejemplo de respuesta de error
------------------------------
+Endpoint: /fecha/dia/semana
+---------------------------
 
-El siguiente es un ejemplo de una respuesta de error:
+**Método:** GET
 
- ```json
+**Descripción:** Obtiene el día de la semana actual.
 
-    {
-        "error": "El arreglo está vacío"
-    }
-    
-```
+**Respuesta:**   
+Código de estado: 200 OK   
+Cuerpo de respuesta: Un mensaje que indica el día de la semana actual en español. Puede ser "Domingo", "Lunes", "
+Martes", "Miércoles", "Jueves", "Viernes", "Sábado" o "Día no válido"
