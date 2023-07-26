@@ -2,7 +2,6 @@ package com.example.apirest.service;
 
 
 import com.example.apirest.controller.OrdenarService;
-import com.example.apirest.exceptions.InvalidArrayElementException;
 import com.example.apirest.model.ArregloContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
